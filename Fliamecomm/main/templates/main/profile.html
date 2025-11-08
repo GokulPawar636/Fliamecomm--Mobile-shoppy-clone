@@ -1,0 +1,9 @@
+{% extends 'main/base.html' %}
+{% block content %}
+  <h2 class="text-center text-primary fw-bold my-4">👤 Your Profile</h2>
+  <div class="card p-4 shadow-sm">
+    <p><strong>Username:</strong> {{ user.username }}</p>
+    <p><strong>Email:</strong> {{ user.email }}</p>
+    <!-- Add more user info here -->
+  </div>
+{% endblock %}

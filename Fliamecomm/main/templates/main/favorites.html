@@ -1,0 +1,42 @@
+{% extends 'main/base.html' %}
+{% block content %}
+
+<h2 class="text-center text-primary fw-bold my-4">❤️ Your Favorites</h2>
+
+<!-- Liked Products -->
+<h4 class="text-dark fw-semibold mb-3">Liked Products</h4>
+<div class="row row-cols-1 row-cols-md-3 g-4 mb-5">
+  {% for product in liked_products %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">₹{{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-muted">No liked products yet.</p>
+  {% endfor %}
+</div>
+
+<!-- Cart Products -->
+<h4 class="text-dark fw-semibold mb-3">Products in Your Cart</h4>
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for product in cart_products %}
+    <div class="col">
+      <div class="card h-100 shadow-sm">
+        <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ product.name }}</h5>
+          <p class="card-text">₹{{ product.price }}</p>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <p class="text-muted">Your cart is empty.</p>
+  {% endfor %}
+</div>
+
+{% endblock %}

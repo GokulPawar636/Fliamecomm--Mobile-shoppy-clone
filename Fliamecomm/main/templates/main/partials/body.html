@@ -1,0 +1,70 @@
+<h2 class="mt-5 mb-4 text-center text-primary fw-bold">📱 Explore Mobile Products</h2>
+
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  {% for product in products %}
+    <div class="col">
+      <div class="card h-100 shadow-lg border-0">
+        <!-- Product Image -->
+        <div class="ratio ratio-4x3">
+          <img src="{{ product.image.url }}" class="img-fluid rounded-top" alt="{{ product.name }}" style="object-fit: contain;">
+        </div>
+
+
+        <div class="card-body bg-light">
+          <!-- Product Title -->
+          <h5 class="card-title text-dark fw-semibold">{{ product.name }}</h5>
+
+          <!-- Truncated Description -->
+          <p class="card-text short-desc text-muted" id="short{{ product.id }}">
+            {{ product.description|truncatewords:15 }}
+          </p>
+
+          <!-- Full Description (Hidden Initially) -->
+          <p class="card-text full-desc text-muted d-none" id="full{{ product.id }}">
+            {{ product.description }}
+          </p>
+
+          <!-- Product Specs -->
+          <ul class="list-unstyled small mb-3">
+            <li><span class="text-secondary">📌 Brand:</span> <strong>{{ product.brand.name }}</strong></li>
+            <li><span class="text-secondary">📂 Category:</span> <strong>{{ product.category.name }}</strong></li>
+            <li><span class="text-secondary">🧠 RAM:</span> <strong>{{ product.ram }}</strong></li>
+            <li><span class="text-secondary">💾 Storage:</span> <strong>{{ product.storage }}</strong></li>
+            <li><span class="text-secondary">🔋 Battery:</span> <strong>{{ product.battery }}</strong></li>
+          </ul>
+
+          <!-- Price -->
+          <p class="fw-bold text-success fs-5">₹{{ product.price }}</p>
+
+          <!-- Toggle Button -->
+          <button class="btn btn-sm btn-outline-primary" onclick="toggleDescription({{ product.id }})" id="btn{{ product.id }}">
+            View More
+          </button>
+        </div>
+      </div>
+    </div>
+  {% empty %}
+    <div class="text-center">
+      <p class="text-danger">No products found.</p>
+    </div>
+  {% endfor %}
+</div>
+
+<!-- Toggle Description Script -->
+<script>
+  function toggleDescription(id) {
+    const shortDesc = document.getElementById('short' + id);
+    const fullDesc = document.getElementById('full' + id);
+    const btn = document.getElementById('btn' + id);
+
+    if (fullDesc.classList.contains('d-none')) {
+      shortDesc.classList.add('d-none');
+      fullDesc.classList.remove('d-none');
+      btn.textContent = 'View Less';
+    } else {
+      fullDesc.classList.add('d-none');
+      shortDesc.classList.remove('d-none');
+      btn.textContent = 'View More';
+    }
+  }
+</script>

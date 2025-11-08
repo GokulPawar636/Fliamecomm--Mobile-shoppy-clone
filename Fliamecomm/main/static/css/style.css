@@ -1,0 +1,115 @@
+
+.hero-section {
+  box-shadow: 0 0 30px rgba(30, 136, 229, 0.3);
+}
+
+.card:hover {
+  transform: scale(1.02);
+  transition: 0.3s ease;
+}
+
+.card-title {
+  font-size: 1.1rem;
+}
+
+form input::placeholder {
+  color: #adb5bd;
+}
+.btn-primary {
+  background-color: #17a2b8;
+  border-color: #17a2b8;
+}
+
+.btn-outline-primary {
+  border-color: #17a2b8;
+  color: #17a2b8;
+}
+
+.btn-outline-primary:hover {
+  background-color: #17a2b8;
+  color: #ffffff;
+}
+
+.card {
+  border: none;
+  background-color: #ffffff;
+}
+
+.card-title {
+  color: #6610f2;
+}
+
+
+/* login page */
+/* register page  */
+.card {
+  border-radius: 12px;
+}
+
+form input, form select {
+  border-radius: 6px;
+}
+
+form button {
+  font-weight: 600;
+}
+.product-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.product-card img {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+  transform: scale(1.05);
+}
+.product-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.product-card .position-absolute {
+  z-index: 2; /* Ensure like button stays above image */
+}
+
+.product-card .bg-light {
+  position: relative;
+  z-index: 1; /* Image container stays behind the like button */
+}
+
+.short-desc,
+.full-desc {
+  font-size: 0.95rem;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.navbar-brand {
+  font-size: 1.5rem;
+}
+
+.nav-link {
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #d1ecff !important;
+}
+
+footer {
+  font-size: 0.9rem;
+  letter-spacing: 0.5px;
+}
+.like-form button:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+ 
